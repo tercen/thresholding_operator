@@ -4,15 +4,15 @@ library(dplyr)
 do.flag = function(df, operand = ">=") {
   
   values <- df %>% group_by(.axisIndex) %>% 
-    summarise(value = mean(.y)) %>% 
-    filter(.axisIndex == 1)
+    summarise(value = mean(.y, na.rm = TRUE)) %>% 
+    filter(.axisIndex == 0)
   val <- values$value
   
   if(length(val) == 0) val <- NaN
   
   thresholds <- df %>% group_by(.axisIndex) %>% 
-    summarise(value = mean(.y)) %>% 
-    filter(.axisIndex == 0)
+    summarise(value = mean(.y, na.rm = TRUE)) %>% 
+    filter(.axisIndex == 1)
   thres <- thresholds$value
   
   if(length(thres) == 0) thres <- NaN
