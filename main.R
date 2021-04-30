@@ -8,7 +8,7 @@ do.flag = function(df, operand = ">=") {
     filter(.axisIndex == 1)
   val <- values$value
   
-  if(length(base) == 0) val <- NaN
+  if(length(val) == 0) val <- NaN
   
   thresholds <- df %>% group_by(.axisIndex) %>% 
     summarise(value = mean(.y)) %>% 
