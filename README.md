@@ -14,6 +14,8 @@ Input projection|.
 Input parameters|.
 ---|---
 `operand`        | operand for comparison of values to threshold
+`pass.flag`        | Name to give to observations that satisfy the condition.
+`fail.flag`        | Name to give to observations that do not satisfy the condition.
 
 Output relations|.
 ---|---

@@ -17,6 +17,18 @@
       "<"
     ],
     "description": "Operation to perform"
+  },
+  {
+    "kind": "StringProperty",
+    "name": "pass.flag",
+    "defaultValue": "pass",
+    "description": "Name to give to observations that satisfy the condition."
+  },
+  {
+    "kind": "StringProperty",
+    "name": "fail.flag",
+    "defaultValue": "fail",
+    "description": "Name to give to observations that do not satisfy the condition."
   }
   ]
 }

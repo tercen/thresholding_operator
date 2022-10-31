@@ -1,7 +1,7 @@
 library(tercen)
 library(dplyr)
 
-do.flag = function(df, operand = ">=") {
+do.flag = function(df, operand = ">=", pass.flag = "pass", fail.flag = "fail") {
   
   values <- df %>% group_by(.axisIndex) %>% 
     summarise(value = mean(.y, na.rm = TRUE)) %>% 
@@ -19,8 +19,8 @@ do.flag = function(df, operand = ">=") {
   
   flag <- ifelse(
     eval(parse(text = paste0("val ", operand, " thres"))),
-    "pass",
-    "fail"
+    pass.flag,
+    fail.flag
   )
 
   return(data.frame(
@@ -41,9 +41,14 @@ operand <- ifelse(
   ">="
 )
 
-ctx %>%
+pass.flag <- "pass"
+if(!is.null(ctx$op.value("pass.flag"))) pass.flag <- ctx$op.value("pass.flag")
+fail.flag <- "fail"
+if(!is.null(ctx$op.value("fail.flag"))) fail.flag <- ctx$op.value("fail.flag")
+
+df_out <- ctx %>%
   select(.ci, .ri, .y, .axisIndex) %>%
   group_by(.ci, .ri) %>%
-  do(do.flag(., operand)) %>%
+  do(do.flag(., operand, pass.flag, fail.flag)) %>%
   ctx$addNamespace() %>%
   ctx$save()
