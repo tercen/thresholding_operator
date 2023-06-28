@@ -74,6 +74,14 @@
       "Hash": "e75525c55c70e5f4f78c9960a4b402e9",
       "Requirements": []
     },
+    "curl": {
+      "Package": "curl",
+      "Version": "4.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "2b7d10581cc730804e9ed178c8374bd6",
+      "Requirements": []
+    },
     "data.table": {
       "Package": "data.table",
       "Version": "1.14.0",
@@ -82,20 +90,12 @@
       "Hash": "d1b8b1a821ee564a3515fa6c6d5c52dc",
       "Requirements": []
     },
-    "digest": {
-      "Package": "digest",
-      "Version": "0.6.27",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "a0cbe758a531d054b537d16dff4d58a1",
-      "Requirements": []
-    },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.0.4",
+      "Version": "1.0.5",
       "Source": "Repository",
       "Repository": "RSPM",
-      "Hash": "01c82e3b053eb7660a8ace8d932265b8",
+      "Hash": "d0d76c11ec807eb3f000eba4e3eb0f68",
       "Requirements": [
         "R6",
         "ellipsis",
@@ -143,6 +143,28 @@
       "Hash": "6efd734b14c6471cfe443345f3e35e29",
       "Requirements": []
     },
+    "httr": {
+      "Package": "httr",
+      "Version": "1.4.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "a525aba14184fec243f9eaec62fbed43",
+      "Requirements": [
+        "R6",
+        "curl",
+        "jsonlite",
+        "mime",
+        "openssl"
+      ]
+    },
+    "jsonlite": {
+      "Package": "jsonlite",
+      "Version": "1.7.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "98138e0994d41508c7a6b84a0600cfcb",
+      "Requirements": []
+    },
     "lifecycle": {
       "Package": "lifecycle",
       "Version": "1.0.0",
@@ -160,6 +182,14 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "41287f1ac7d28a92f0a286ed507928d3",
+      "Requirements": []
+    },
+    "mime": {
+      "Package": "mime",
+      "Version": "0.10",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "26fa77e707223e1ce042b2b5d09993dc",
       "Requirements": []
     },
     "mtercen": {
@@ -182,10 +212,10 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.5.0",
+      "Version": "1.5.1",
       "Source": "Repository",
       "Repository": "RSPM",
-      "Hash": "39a778e4e487ded8b1bf5bb617c567b3",
+      "Hash": "24622aa4a0d3de3463c34513edca99b2",
       "Requirements": [
         "cli",
         "crayon",
@@ -232,6 +262,14 @@
       "Hash": "599df23c40a4fce9c7b4764f28c37857",
       "Requirements": []
     },
+    "rstudioapi": {
+      "Package": "rstudioapi",
+      "Version": "0.13",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "06c85365a03fdaf699966cc1d3cf53ea",
+      "Requirements": []
+    },
     "sys": {
       "Package": "sys",
       "Version": "3.4",
@@ -250,17 +288,33 @@
     },
     "tercen": {
       "Package": "tercen",
-      "Version": "0.10.8",
+      "Version": "0.13.0",
       "Source": "Repository",
       "Repository": "TERCEN",
-      "Hash": "7676dd098faf9b2267411f8f129f5d8b",
+      "Hash": "2b99817b3a000b5b4591b5173947a0ac",
       "Requirements": [
         "R6",
         "dplyr",
+        "httr",
         "mtercen",
         "openssl",
+        "rstudioapi",
         "teRcenHttp",
+        "tercenApi",
         "tibble",
+        "uuid",
+        "yaml"
+      ]
+    },
+    "tercenApi": {
+      "Package": "tercenApi",
+      "Version": "0.12.8",
+      "Source": "Repository",
+      "Repository": "TERCEN",
+      "Hash": "e92d54419184d7f403d082988a3c41c3",
+      "Requirements": [
+        "R6",
+        "teRcenHttp",
         "yaml"
       ]
     },
@@ -297,20 +351,27 @@
     },
     "utf8": {
       "Package": "utf8",
-      "Version": "1.1.4",
+      "Version": "1.2.1",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "4a5081acfb7b81a572e4384a7aaf2af1",
+      "Repository": "CRAN",
+      "Hash": "c3ad47dc6da0751f18ed53c4613e3ac7",
+      "Requirements": []
+    },
+    "uuid": {
+      "Package": "uuid",
+      "Version": "1.1-0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f1cb46c157d080b729159d407be83496",
       "Requirements": []
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.3.6",
+      "Version": "0.3.7",
       "Source": "Repository",
       "Repository": "RSPM",
-      "Hash": "5cf1957f93076c19fdc81d01409d240b",
+      "Hash": "5540dc30a203a43a1ce5dc6a89532b3b",
       "Requirements": [
-        "digest",
         "ellipsis",
         "glue",
         "rlang"
