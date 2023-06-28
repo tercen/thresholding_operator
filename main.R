@@ -2,18 +2,6 @@ library(tercen)
 library(dplyr)
 library(data.table)
 
-do.flag <- function(df, operand = ">=") {
-  
-  val <- df[.axisIndex == 0]$.y
-  if(length(val) != 1) val <- NaN
-  
-  thres <- df[.axisIndex == 1]$.y
-  if(length(thres) != 1) thres <- NaN
-  
-  flag <- do.call(operand, list(val, thres))
-  return(list(flag = flag))
-}
-
 ctx = tercenCtx()
 
 if(length(ctx$yAxis) != 2) stop("Two layers are required.")
@@ -26,7 +14,11 @@ df <- ctx %>%
   select(.ci, .ri, .y, .axisIndex) %>%
   as.data.table()
 
-df_out <- df[, do.flag(.SD, operand), by = .(ci = .ci, ri = .ri)]
+df_out <- df[, {
+  if(nrow(.SD) != 2) flag = NaN
+  else flag <- do.call(operand, list(.y[.axisIndex == 0], .y[.axisIndex == 1]))
+  list(flag = flag)
+}, by = c(".ci", ".ri")]
 
 df_out %>%
   as_tibble() %>%
